@@ -31,10 +31,10 @@ const App = () => {
       const formData = new FormData();
       formData.append('image', image);
 
-      const res = await fetch('http://localhost:5000/caption', {
-        method: 'POST',
-        body: formData,
-      });
+const res = await fetch(`${process.env.REACT_APP_API_URL}/caption`, {
+  method: 'POST',
+  body: formData,
+});
 
       const data = await res.json();
       setCaption(data.caption);
